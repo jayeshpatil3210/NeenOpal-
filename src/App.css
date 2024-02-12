@@ -1,0 +1,110 @@
+@import url("https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css");
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+  background-color: rgb(255, 232, 236);
+  /* padding: 10px; */
+}
+
+.grid-container > div {
+  background-color: white;
+  padding: 30px;
+  margin: 20px;
+  height: 415px;
+  /* width: 252px; */
+}
+
+.card-img {
+  width: 265px;
+}
+
+.card-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* .card .icn {
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 0px 0px 5px;
+} */
+
+.icon-email {
+  display: flex;
+  align-items: center;
+  padding: 10px 0px;
+}
+
+.icon-email p {
+  margin: 0px;
+  padding-left: 5px;
+  font-size: 15px;
+}
+
+.icon-email i {
+  font-size: 18px;
+  padding-top: 6px;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 768px) {
+  /* .grid-container {
+    grid-template-columns: auto;
+    
+  }*/
+
+  .grid-container > div {
+    height: 415px;
+  }
+
+  .grid-container {
+    grid-template-columns: auto;
+  }
+
+  /* .card-img{
+    width: 150px;
+  } */
+  .card-img {
+    width: 275px !important;
+  }
+
+  .card-btn {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 840px) {
+  .grid-container {
+    grid-template-columns: auto;
+  }
+
+  .grid-container > div {
+    height: 415px;
+  }
+
+  .card-img {
+    width: 275px !important;
+  }
+
+  /* .grid-container > div {
+    background-color: white;
+    padding: 30px;
+    margin: 20px;
+    height: 320px;
+    width: 160px;
+  } */
+
+  /* .card-img{
+    width: 150px;
+  } */
+
+  .card-btn {
+    display: flex;
+    justify-content: space-between;
+  }
+}
