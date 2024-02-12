@@ -31,16 +31,33 @@ export default function BasicModal({ data, onSubmit, index }) {
     website: "",
   });
 
+  const [errors, setErrors] = useState({});
+
   useEffect(() => {
     setValue(data);
   }, []);
 
   const handleChanges = (e) => {
     setValue({ ...value, [e.target.name]: e.target.value });
+
+    setErrors({ ...errors, [e.target.name]: "" });
   };
   const handleUpdate = () => {
-    onSubmit(value, index);
-    handleClose();
+    // Check for empty fields before submitting
+    const newErrors = {};
+    Object.keys(value).forEach((key) => {
+      if (!value[key]) {
+        newErrors[key] = "This field is required";
+      }
+    });
+
+    // If there are errors, do not submit
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+    } else {
+      onSubmit(value, index);
+      handleClose();
+    }
   };
   return (
     <div>
@@ -73,6 +90,8 @@ export default function BasicModal({ data, onSubmit, index }) {
               size="small"
               variant="outlined"
               required
+              error={!!errors.name}
+              helperText={errors.name}
             />
           </div>
           <div
@@ -92,6 +111,8 @@ export default function BasicModal({ data, onSubmit, index }) {
               size="small"
               variant="outlined"
               required
+              error={!!errors.email}
+              helperText={errors.email}
             />
           </div>
           <div
@@ -111,6 +132,8 @@ export default function BasicModal({ data, onSubmit, index }) {
               size="small"
               variant="outlined"
               required
+              error={!!errors.phone}
+              helperText={errors.phone}
             />
           </div>
           <div
@@ -130,6 +153,8 @@ export default function BasicModal({ data, onSubmit, index }) {
               size="small"
               variant="outlined"
               required
+              error={!!errors.website}
+              helperText={errors.website}
             />
           </div>
 
